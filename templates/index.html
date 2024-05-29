@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>NUCLEUSTEQ</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+    <script src="https://cdn.tailwindcss.com"></script>
+  
+</head>
+  <body class="login">
+    <h<body>
+    
+        <div class="background">
+            <div class="circle top-left"></div>
+            <div class="circle top-right"></div>
+            </div>
+        <div class="glass-overlay"></div>
+        <div class="center">
+            <div class="card p-5">
+                <h1 class="text-center bg-green-400">Login</h1>
+                <form id="loginForm" action="/" method="POST"><div class="form-group">
+    
+                    <label for="email">Email:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="email" name="email" required placeholder="Enter your Office email ID">
+                        <div class="input-group-append">
+                            <span class="input-group-text input-group-text-custom">@nucleousteq.com</span>
+                        </div>
+                    </div>
+    
+                    <div id="emailError" class="text-danger mt-2" style="display: none;">Please use a Gmail address ending with @gmail.com</div>
+                </div>
+                
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </form>
+            </div>
+        </div>
+    
+    
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+    function validateEmail() {
+        var email = document.getElementById("email").value;
+        var emailError = document.getElementById("emailError");
+        var gmailSuffix = "@gmail.com";
+        
+        if (!email.endsWith(gmailSuffix)) {
+            emailError.style.display = "block";
+            return false;
+        } else {
+            emailError.style.display = "none";
+            return true;
+        }
+    }
+    </script>
+    
+</body>
+</html>

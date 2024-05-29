@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+</head>
+<body>
+    <h1>Users</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Is Admin</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Delete</th> 
+                <th>Assigned Items</th> 
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.UID }}</td>
+                <td>{{ user.isAdmin }}</td>
+                <td>{{ user.FullName }}</td>
+                <td>{{ user.Email }}</td>
+                <td>{{ user.Password }}</td>
+                <td>
+                    <form action="/delete-user" method="POST"> <!-- Form for delete button -->
+                        <input type="hidden" name="uid" value="{{ user.UID }}"> <!-- Hidden input for serial number -->
+                        <button type="submit">Delete</button> <!-- Delete button -->
+                    </form>
+                </td>
+
+                <td>
+                    <ul>
+                        {% for item in user.assigned_items %}
+                        <li>{{ item.ItemName }}</li> <!-- Display assigned item name -->
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    
+    <h1>Add User</h1>
+    <form method="POST">
+        <label for="isAdmin">Is Admin:</label><br>
+        <input type="checkbox" id="isAdmin" name="isAdmin"><br>
+        <label for="fullName">Full Name:</label><br>
+        <input type="text" id="fullName" name="fullName"><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <button type="submit">Add User</button>
+    </form>
+</body>
+</html>

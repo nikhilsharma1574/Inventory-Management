@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items</title>
+</head>
+<body>
+    <h1>Items</h1><table>
+        <thead>
+            <tr>
+                <th>Serial Number</th>
+                <th>Item Name</th>
+                <th>Quantity</th>
+                <th>Category</th>
+                <th>Bill Number</th>
+                <th>Date of Purchase</th>
+                <th>Warranty</th>
+                <th>Assigned To</th>
+                <th>Action</th> <!-- New column for update and delete buttons -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.SerialNumber }}</td>
+                <td>{{ item.ItemName }}</td>
+                <td>{{ item.Quantity }}</td>
+                <td>{{ item.Category }}</td>
+                <td>{{ item.BillNumber }}</td>
+                <td>{{ item.DateOfPurchase }}</td>
+                <td>{{ item.Warranty }}</td>
+                <td>{{ item.AssignedTo }}</td>
+                <td>
+                    {% if item.AssignedTo is none %}
+                        <form action="/assign-item" method="POST"> <!-- Form for assign button -->
+                            <input type="hidden" name="serialNumber" value="{{ item.SerialNumber }}"> <!-- Hidden input for serial number -->
+                            <select name="assignedTo">
+                                {% for user in users %}
+                                    <option value="{{ user.UID }}">{{ user.FullName }}</option> <!-- Dropdown options for users -->
+                                {% endfor %}
+                            </select>
+                            <button type="submit">Assign</button> <!-- Assign button -->
+                        </form>
+                    {% else %}
+                        <form action="/unassign-item" method="POST"> <!-- Form for unassign button -->
+                            <input type="hidden" name="serialNumber" value="{{ item.SerialNumber }}"> <!-- Hidden input for serial number -->
+                            <button type="submit">Unassign</button> <!-- Unassign button -->
+                        </form>
+                    {% endif %}
+                    <form action="/delete-item" method="POST"> <!-- Form for delete button -->
+                        <input type="hidden" name="serialNumber" value="{{ item.SerialNumber }}"> <!-- Hidden input for serial number -->
+                        <button type="submit">Delete</button> <!-- Delete button -->
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    
+
+    <h1>Add Item</h1>
+    <form method="POST">
+        <label for="serialNumber">Serial Number:</label><br>
+        <input type="text" id="serialNumber" name="serialNumber"><br>
+        <label for="itemName">Item Name:</label><br>
+        <input type="text" id="itemName" name="itemName"><br>
+        <label for="quantity">Quantity:</label><br>
+        <input type="number" id="quantity" name="quantity"><br>
+        <label for="category">Category:</label><br>
+        <input type="text" id="category" name="category"><br>
+        <label for="billNumber">Bill Number:</label><br>
+        <input type="text" id="billNumber" name="billNumber"><br>
+        <label for="dateOfPurchase">Date of Purchase:</label><br>
+        <input type="date" id="dateOfPurchase" name="dateOfPurchase"><br>
+        <label for="warranty">Warranty:</label><br>
+        <input type="text" id="warranty" name="warranty"><br>
+        <label for="assignedTo">Assigned To:</label><br>
+        <input type="text" id="assignedTo" name="assignedTo"><br><br>
+        <button type="submit">Add Item</button>
+    </form>
+</body>
+</html>
