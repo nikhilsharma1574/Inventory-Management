@@ -12,40 +12,33 @@
 </head>
   <body class="login">
     <h<body>
-    
-        <div class="background">
-            <div class="circle top-left"></div>
-            <div class="circle top-right"></div>
-            </div>
-        <div class="glass-overlay"></div>
-        <div class="center">
-            <div class="card p-5">
-                <h1 class="text-center bg-green-400">Login</h1>
+        <div class="absolute bg-[#00C7C4] left-[195px] rounded-full h-[400px] w-[400px]"></div>
+        <div class="absolute bg-blue-600 bottom-4 right-36 rounded-full h-[450px] w-[450px]"></div>
+            <div class="backdrop-blur-[80px] bg-cover w-screen overflow-hidden h-screen flex items-center justify-center">
+                
+                <div class="w-full h-full items-center justify-center flex p-6">
+                <div class="border-dotted mx-10 p-5 lg:h-[440px] lg:w-[450px] rounded-xl  aspect-video w-96 bg-white backdrop-blur-[900px] shadow-lg ring-1 ring-black/5">
+                <h1 class="text-center text-4xl uppercase font-bold text-black mb-12">Login</h1>
                 <form id="loginForm" action="/" method="POST"><div class="form-group">
-    
-                    <label for="email">Email:</label>
+                    <label for="email" class="">Email:</label>
                     <div class="input-group">
                         <input type="text" class="form-control" id="email" name="email" required placeholder="Enter your Office email ID">
                         <div class="input-group-append">
                             <span class="input-group-text input-group-text-custom">@nucleousteq.com</span>
                         </div>
                     </div>
-    
                     <div id="emailError" class="text-danger mt-2" style="display: none;">Please use a Gmail address ending with @gmail.com</div>
                 </div>
-                
                     <div class="form-group">
-                        <label for="password">Password:</label>
+                        <label for="password" class="">Password:</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
-                    <button type="submit" class="btn btn-dark">Submit</button>
+                    <button type="submit" class="mt-8 bg-[#00C7C4] px-8 py-2 rounded-md hover:scale-110 transition-all delay-150">Login</button>
                 </form>
+                </div>
             </div>
         </div>
-    
-    
-    
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
     function validateEmail() {
         var email = document.getElementById("email").value;
@@ -60,7 +53,6 @@
             return true;
         }
     }
-    </script>
-    
+    </script>  
 </body>
 </html>
