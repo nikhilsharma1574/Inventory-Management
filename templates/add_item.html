@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>NUCLEUSTEQ</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+    <script src="https://cdn.tailwindcss.com"></script>
+  
+</head>
+  <body class="login">
+    <h<body>
+        <div class="absolute bg-[#00C7C4] left-[195px] rounded-full h-[400px] w-[400px]"></div>
+        <div class="absolute bg-blue-600 bottom-4 right-36 rounded-full h-[450px] w-[450px]"></div>
+        <div class="backdrop-blur-[80px] bg-cover w-screen overflow-hidden h-screen flex items-center justify-center">
+                
+        <div class="w-full h-full items-center justify-center flex p-6">
+        <div class="border-dotted mx-10 p-5 lg:h-[940px] lg:w-[450px] rounded-xl  aspect-video w-96 bg-white backdrop-blur-[900px] shadow-lg ring-1 ring-black/5">
+                <h1 class="text-center text-4xl uppercase font-bold text-black mb-12">Add Item</h1>
+    <form method="POST">
+        <label for="serialNumber">Serial Number:</label><br>
+        <input type="text" id="serialNumber" name="serialNumber" class="form-control"><br>
+        <label for="itemName">Item Name:</label><br>
+        <input type="text" id="itemName" name="itemName" class="form-control"><br>
+        <label for="quantity">Quantity:</label><br>
+        <input type="number" id="quantity" name="quantity" class="form-control"><br>
+        <label for="category">Category:</label><br>
+        <input type="text" id="category" name="category" class="form-control"><br>
+        <label for="billNumber">Bill Number:</label><br>
+        <input type="text" id="billNumber" name="billNumber" class="form-control"><br>
+        <label for="dateOfPurchase">Date of Purchase:</label><br>
+        <input type="date" id="dateOfPurchase" name="dateOfPurchase" class="form-control"><br>
+        <label for="warranty">Warranty:</label><br>
+        <input type="text" id="warranty" name="warranty" class="form-control"><br>
+        <label for="assignedTo">Assigned To:</label><br>
+        <input type="text" id="assignedTo" name="assignedTo" class="form-control"><br><br>
+        <button type="submit" class=" bg-[#00C7C4] px-8 py-2 rounded-md hover:scale-110 transition-all delay-150">Add Item</button>
+    </form>
+                </div>
+            </div>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
+    

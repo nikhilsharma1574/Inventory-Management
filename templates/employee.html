@@ -19,22 +19,21 @@
     <div class="absolute bg-blue-600 bottom-0 left-0 rounded-full h-[250px] w-[250px]"></div>
     <div class="w-full h-full flex justify-center">
         <div class="absolute bg-blue-600 justify-center flex top-6 rounded-full h-[250px] w-[250px]"></div>
-    </div>
+    
 
     <div class="main flex h-screen p-4 backdrop-blur-[80px] bg-cover w-screen overflow-hidden bg-blue-500-600 bg-opacity-35">
         <div class="bg-white h-full flex flex-col justify-between p-4 w-60 rounded-lg shadow-sm shadow-black">
             <div class="flex flex-col">
-                <h2 class="text-xl font-bold">Hello Employee</h2>
-                <ul class="mt-12 flex  flex-col gap-2">
-                    <button class="btn text-left hover:font-semibold transition-all delay-150" type="button">Inventory</button>
-                    <button class="btn text-left hover:font-semibold transition-all delay-150" type="button">Employee</button>
-                    <!-- <button class="btn text-left hover:font-semibold transition-all delay-150" type="button">All Employees</button> -->
-                </ul>
+                <h2 class="text-xl font-bold">Hello {{user.FullName}}</h2>
             </div>
 
             <div class="flex flex-col gap-2">
-                <button class="btn text-left hover:font-semibold transition-all delay-150" type="button">Profile</button>
-                <button class="btn text-left hover:font-semibold transition-all delay-150" type="button">Logout</button>
+                <form action="{{ url_for('profile') }}" method="get" style="display: inline;">
+                    <button class="btn text-left hover:font-semibold transition-all delay-150" type="submit">Profile</button>
+                </form>
+                <form action="{{ url_for('logout') }}" method="get" style="display: inline;">
+                    <button class="btn text-left hover:font-semibold transition-all delay-150" type="submit">Logout</button>
+                </form>
             </div>
         </div>
         <div class="body_right flex-col w-full rounded-md backdrop-blur-xl ml-4 overflow-hidden">
@@ -44,53 +43,35 @@
                 <div class=" rounded-full bg-teal-600 h-12 w-12"></div>
             </div>
             
-            <div class="Navbar flex w-full my-2 items-center justify-end flex-1/3">
-                <button class=" bg-[#00C7C4] px-8 py-2 rounded-md hover:scale-110 transition-all delay-150">Assigned items</button>
+            <div class="p-2 m-2">
+                <span class="font-bold">Assigned Items</span>
             </div>
 
-            <div class="table_body w-full bg-white h-full rounded-lg p-2">
-                TEST
-            </div>
-        </div>
-
-    <!-- <div class="heading"><h2>Dashboard</h2></div> -->
-    <!-- <div class="floating-search-bar">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search...">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">Search</button>
-            </div>
-        </div>
-    </div>
-
-    <button class="additem btn btn-dark">Add Item</button>
+            
 
 
-    <div class="floating-filter-bar">
-        <div class="input-group">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">All</button>
-                <button class="btn btn-outline-secondary" type="button">Assigned</button>
-                <button class="btn btn-outline-secondary" type="button">Unassigned</button>
-            </div>
-        </div>
-    </div>
 
-    <div class="floating-card">
-        <h2>Assigned Items</h2>
         <ul>
             {% for item in user.assigned_items %}
-                <li>{{ item.ItemName }} - {{ item.Quantity }} - {{ item.SerialNumber }} - {{ item.Category }} - {{ item.DateOfPurchase }} - {{ item.Warranty }} - {{ item.AssignedTo }} - {{ item.BillNumber }}</li>
+            
+            <div class="grid-cols-5 grid mt-12 gap-7">
+                <div class="card1 w-fit  bg-white shadow-xl rounded-lg py-16 px-8">
+                    <div class="flex gap-4">
+                        <span>Name : {{ item.ItemName }}</span>
+                        <span>{{ item.Quantity }}</span>
+                        <span>{{ item.Category }}</span>
+                    </div>
+                    <div class="flex flex-col mt-4 gap-3">
+                        <span>{{ item.DateOfPurchase }}</span>
+                        <span>{{ item.SerialNumber }}</span>
+                        <span>{{ item.BillNumber }}</span>
+                        <span>{{ item.Warranty }}</span>
+                    </div>
+                </div>
+            </div>
             {% endfor %}
         </ul>
         <hr>
-        <h2>All Items</h2>
-        <ul>
-            {% for item in all_items %}
-                <li>{{ item.ItemName }} - {{ item.Quantity }}</li>
-            {% endfor %}
-        </ul>
-    </div> -->
 
 
 

@@ -19,148 +19,240 @@
     <div class="absolute bg-blue-600 bottom-0 left-0 rounded-full h-[250px] w-[250px]"></div>
     <div class="w-full h-full flex justify-center">
         <div class="absolute bg-blue-600 justify-center flex top-6 rounded-full h-[250px] w-[250px]"></div>
-    </div>
-
-    <div class="main flex h-screen p-4 backdrop-blur-[80px] bg-cover w-screen overflow-hidden bg-blue-500-600 bg-opacity-35">
-        <div class="bg-white h-full flex flex-col justify-between p-4 w-60 rounded-lg shadow-sm shadow-black">
-            <div class="flex flex-col">
-                <h2 class="text-xl font-bold">Hello Admin</h2>
-                <ul class="mt-12 flex  flex-col gap-2">
-                    <button class="btn text-left hover:font-semibold transition-all delay-150" type="button">My Items</button>
-                    <button class="btn text-left hover:font-semibold transition-all delay-150" type="button">All Items</button>
-                    <button class="btn text-left hover:font-semibold transition-all delay-150" type="button">All Employees</button>
-                </ul>
-            </div>
-
-            <div class="flex flex-col gap-2">
-                <button class="btn text-left hover:font-semibold transition-all delay-150" type="button">Profile</button>
-                <button class="btn text-left hover:font-semibold transition-all delay-150" type="button">Logout</button>
-            </div>
-        </div>
-        <div class="body_right flex-col w-full rounded-md backdrop-blur-xl ml-4 overflow-hidden">
-            
-            <div class="Navbar border bg-white p-2 my-2 rounded-lg flex w-full items-center justify-between flex-1/3">
-                <span class="font-bold">Admin Dashboard</span>
-                <div class=" rounded-full bg-teal-600 h-12 w-12"></div>
-            </div>
-            
-            <div class="Navbar flex w-full my-2 bg-white p-2 rounded-lg items-center justify-between flex-1/3">
-                <input type="text" class="form-control w-1/2" placeholder="Search...">
-                <button class=" bg-[#00C7C4] px-8 py-2 rounded-md hover:scale-110 transition-all delay-150" type="button">Search</button>
-            </div>
-            
-            <div class="Navbar flex w-full my-2 items-center justify-end flex-1/3">
-                <button class=" bg-[#00C7C4] px-8 py-2 rounded-md hover:scale-110 transition-all delay-150">Add Item</button>
-            </div>
-
-            <div class="Navbar bg-white py-2 my-2 rounded-lg p-2 flex w-full items-center flex-1/3 justify-between">
-                <div class="flex justify-start gap-x-9">
-                    <button class="btn hover:font-semibold transition-all delay-150" type="button">All</button>
-                    <button class="btn hover:font-semibold transition-all delay-150" type="button">Assigned</button>
-                    <button class="btn hover:font-semibold transition-all delay-150" type="button">Unassigned</button>
+    
+        <div class="main flex h-screen p-4 backdrop-blur-[80px] bg-cover w-screen overflow-hidden bg-blue-500-600 bg-opacity-35">
+            <div class="bg-white h-full flex flex-col justify-between p-4 w-60 rounded-lg shadow-sm shadow-black">
+                <div class="flex flex-col">
+                    <h2 class="text-xl font-bold">Hello {{user.FullName}}</h2>
+                    <ul class="mt-12 flex  flex-col gap-2">
+                        <a href="{{ url_for('admin', filter='all_items') }}"><button class="btn text-left hover:font-semibold transition-all delay-150" type="button">All Items</button></a>
+                        <a href="{{ url_for('admin', filter='all_employees') }}"><button class="btn text-left hover:font-semibold transition-all delay-150" type="button">All Employees</button></a>
+                    </ul>
                 </div>
-                <div class="justify-end flex gap-x-9">
-                    <button class="btn btn hover:font-semibold transition-all delay-150" type="button">Group by</button>
-                    <button class="btn btn hover:font-semibold transition-all delay-150" type="button">Category</button>
+
+                <div class="flex flex-col gap-2">
+                    <form action="{{ url_for('profile') }}" method="get" style="display: inline;">
+                        <button class="btn text-left hover:font-semibold transition-all delay-150" type="submit">Profile</button>
+                    </form>
+                    <form action="{{ url_for('logout') }}" method="get" style="display: inline;">
+                        <button class="btn text-left hover:font-semibold transition-all delay-150" type="submit">Logout</button>
+                    </form>
                 </div>
             </div>
+            <div class="body_right flex-col w-full rounded-md backdrop-blur-xl ml-4 overflow-hidden">
+                
+                <div class="Navbar border bg-white p-2 my-2 rounded-lg flex w-full items-center justify-between flex-1/3">
+                    <span class="font-bold">Admin Dashboard</span>
+                    <div class=" rounded-full bg-teal-600 h-12 w-12"></div>
+                </div>
+                
+                <div class="Navbar flex w-full my-2 bg-white p-2 rounded-lg items-center justify-between flex-1/3">
+                    <input type="text" class="form-control w-1/2" placeholder="Search...">
+                    <button class=" bg-[#00C7C4] px-8 py-2 rounded-md hover:scale-110 transition-all delay-150" type="button">Search</button>
+                </div>
+                
+                <div class="Navbar flex w-full my-2 items-center justify-end flex-1/3">
+                    {% if filter_type == 'all_employees' %}
+                        <a href="{{ url_for('add_user') }}"><button class=" bg-[#00C7C4] px-8 py-2 rounded-md hover:scale-110 transition-all delay-150">Add User</button></a>
+                    {% else %}
+                        <a href="{{ url_for('add_item') }}"><button class=" bg-[#00C7C4] px-8 py-2 rounded-md hover:scale-110 transition-all delay-150">Add Item</button></a>
+                    {% endif %}
+                </div>
 
-            <div class="table_body w-full bg-white h-full rounded-lg p-2">
-                <!-- <div class="Navbar bg-slate-400 py-2 my-2 rounded-lg p-2 flex w-full items-center flex-1/3 justify-between">
+                <div class="Navbar bg-white py-2 my-2 rounded-lg p-2 flex w-full items-center flex-1/3 justify-between">
                     <div class="flex justify-start gap-x-9">
-                        <button class="btn hover:font-semibold transition-all delay-150" type="button">Category</button>
-                        <button class="btn hover:font-semibold transition-all delay-150" type="button">QTY</button>
+                        <a href="{{ url_for('admin', filter='all') }}"><button class="btn hover:font-semibold transition-all delay-150" type="button">All</button></a>
+                        <a href="{{ url_for('admin', filter='assigned') }}"><button class="btn hover:font-semibold transition-all delay-150" type="button">Assigned</button></a>
+                        <a href="{{ url_for('admin', filter='unassigned') }}"><button class="btn hover:font-semibold transition-all delay-150" type="button">Unassigned</button></a>
+                    </div>
+                    <div class="justify-end flex gap-x-9">
+                        <a href="{{ url_for('admin', filter='category') }}"><button class="btn hover:font-semibold transition-all delay-150" type="button">Group By Category</button></a>
+                    
                     </div>
                 </div>
+                
+                <div class="table_body w-full bg-white h-full rounded-lg p-2">
 
-                <div class="Navbar bg-slate-400 py-2 my-2 rounded-lg p-2 flex w-full items-center flex-1/3 justify-between">
-                    <div class="flex justify-start gap-x-9">
-                        <button class="btn hover:font-semibold transition-all delay-150" type="button">Category</button>
-                        <button class="btn hover:font-semibold transition-all delay-150" type="button">QTY</button>
-                    </div>
-                </div> -->
-                <table class="table1 w-full ">
-                    <tr class="bg-slate-500">
-                      <th>Category</th>
-                      <th>QTY</th>
-                      <th>Empty</th>
-                    </tr>
-                    <tr class="bg-slate-200">
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                    </tr>
-                    <tr class="bg-slate-200">
-                      <td>Centro comercial Moctezuma</td>
-                      <td>Francisco Chang</td>
-                      <td>Mexico</td>
-                    </tr>
-                  </table>
+                    
 
-                  <table class=" mt-10 table2 w-full ">
-                    <tr class="bg-slate-500">
-                      <th>Category</th>
-                      <th>QTY</th>
-                      <th>Empty</th>
-                    </tr>
-                    <tr class="bg-slate-200">
-                        <td>Data</td>
-                        <td>Data</td>
-                        <td>Data</td>
-                      </tr>
-                      <tr class="bg-slate-200">
-                        <td>Centro comercial Moctezuma</td>
-                        <td>Francisco Chang</td>
-                        <td>Mexico</td>
-                      </tr>
-                  </table>
+                    {% if filter_type == 'all_employees' %}
+                    <table class="table1 w-full ">
+                        <thead>
+                            <tr class="bg-slate-500">
+                                <th>User ID</th>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Admin Access</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in users %}
+                            <tr class="bg-slate-200">
+                                <td>{{ user.UID }}</td>
+                                <td>{{ user.FullName }}</td>
+                                <td>{{ user.Email }}</td>
+                                <td>{{ 'Yes' if user.isAdmin else 'No' }}</td>
+                                
+                <td>
+                    <form action="/delete-user" method="POST"> <!-- Form for delete button -->
+                        <input type="hidden" name="uid" value="{{ user.UID }}"> <!-- Hidden input for serial number -->
+                        <button type="submit">Delete</button> <!-- Delete button -->
+                    </form>
+                </td>
+
+                
+                <td>
+                    <ul>
+                        {% for item in user.assigned_items %}
+                        <li>{{ item.ItemName }}</li> <!-- Display assigned item name -->
+                        {% endfor %}
+                    </ul>
+                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% elif filter_type == 'category' %}
+                        {% for category, category_items in categories.items() %}
+                        <h3>{{ category }}</h3>
+                        <table class="table1 w-full mb-4">
+                            <thead>
+                                <tr class="bg-slate-500">
+                                    <th>Serial Number</th>
+                                    <th>Item Name</th>
+                                    <th>Quantity</th>
+                                    <th>Category</th>
+                                    <th>Bill Number</th>
+                                    <th>Date Of Purchase</th>
+                                    <th>Warranty</th>
+                                    <th>Assigned To</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in category_items %}
+                                <tr class="bg-slate-200">
+                                    <td>{{ item.SerialNumber }}</td>
+                                    <td>{{ item.ItemName }}</td>
+                                    <td>{{ item.Quantity }}</td>
+                                    <td>{{ item.Category }}</td>
+                                    <td>{{ item.BillNumber }}</td>
+                                    <td>{{ item.DateOfPurchase }}</td>
+                                    <td>{{ item.Warranty }}</td>
+                                    <td>{{ item.AssignedTo }}</td>
+                                    
+                                    <td>
+                                        {% if item.AssignedTo is none %}
+                                            <form action="/assign-item" method="POST"> <!-- Form for assign button -->
+                                                <input type="hidden" name="serialNumber" value="{{ item.SerialNumber }}"> <!-- Hidden input for serial number -->
+                                                <select name="assignedTo">
+                                                    {% for user in users %}
+                                                        <option value="{{ user.UID }}">{{ user.FullName }}</option> <!-- Dropdown options for users -->
+                                                    {% endfor %}
+                                                </select>
+                                                <button type="submit">Assign</button> <!-- Assign button -->
+                                            </form>
+                                        {% else %}
+                                            <form action="/unassign-item" method="POST"> <!-- Form for unassign button -->
+                                                <input type="hidden" name="serialNumber" value="{{ item.SerialNumber }}"> <!-- Hidden input for serial number -->
+                                                <button type="submit">Unassign</button> <!-- Unassign button -->
+                                            </form>
+                                        {% endif %}
+                                        <form action="/delete-item" method="POST"> <!-- Form for delete button -->
+                                            <input type="hidden" name="serialNumber" value="{{ item.SerialNumber }}"> <!-- Hidden input for serial number -->
+                                            <button type="submit">Delete</button> <!-- Delete button -->
+                                        </form>
+                                    </td>
+
+
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% endfor %}
+                    {% else %}
+                    <table class="table1 w-full ">
+                        <thead>
+                            <tr class="bg-slate-500">
+                                <th>Serial Number</th>
+                                <th>Item Name</th>
+                                <th>Quantity</th>
+                                <th>Category</th>
+                                <th>Bill Number</th>
+                                <th>Date Of Purchase</th>
+                                <th>Warranty</th>
+                                <th>Assigned To</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in items %}
+                            <tr class="bg-slate-200">
+                                <td>{{ item.SerialNumber }}</td>
+                                <td>{{ item.ItemName }}</td>
+                                <td>{{ item.Quantity }}</td>
+                                <td>{{ item.Category }}</td>
+                                <td>{{ item.BillNumber }}</td>
+                                <td>{{ item.DateOfPurchase }}</td>
+                                <td>{{ item.Warranty }}</td>
+                                <td>{{ item.AssignedTo }}</td>
+
+                                <td>
+                                    {% if item.AssignedTo is none %}
+                                    <form id="assign-form" action="/assign-item" method="POST" onsubmit="return validateAssignForm()"> 
+                                        <input type="hidden" name="serialNumber" value="{{ item.SerialNumber }}">
+                                        
+                                        <select name="assignedTo" id="assignedTo">
+                                            <option value="">Select user</option>
+                                            {% for u in users %}
+                                                <option value="{{ u.UID }}">{{ u.FullName }}</option> 
+                                            {% endfor %}
+                                        </select>
+                                        <button type="submit">Assign</button> <!-- Assign button -->
+                                    </form>
+                                    
+                                    {% else %}
+                                        <form action="/unassign-item" method="POST"> <!-- Form for unassign button -->
+                                            <input type="hidden" name="serialNumber" value="{{ item.SerialNumber }}"> <!-- Hidden input for serial number -->
+                                            <button type="submit">Unassign</button> <!-- Unassign button -->
+                                        </form>
+                                    {% endif %} 
+
+                                    <form action="/delete-item" method="POST"> <!-- Form for delete button -->
+                                        <input type="hidden" name="serialNumber" value="{{ item.SerialNumber }}"> <!-- Hidden input for serial number -->
+                                        <button type="submit">Delete</button> <!-- Delete button -->
+                                    </form>
+
+
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% endif %}
+                </div>
             </div>
         </div>
-
-    <!-- <div class="heading"><h2>Dashboard</h2></div> -->
-    <!-- <div class="floating-search-bar">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search...">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">Search</button>
-            </div>
-        </div>
-    </div>
-
-    <button class="additem btn btn-dark">Add Item</button>
-
-
-    <div class="floating-filter-bar">
-        <div class="input-group">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">All</button>
-                <button class="btn btn-outline-secondary" type="button">Assigned</button>
-                <button class="btn btn-outline-secondary" type="button">Unassigned</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="floating-card">
-        <h2>Assigned Items</h2>
-        <ul>
-            {% for item in user.assigned_items %}
-                <li>{{ item.ItemName }} - {{ item.Quantity }} - {{ item.SerialNumber }} - {{ item.Category }} - {{ item.DateOfPurchase }} - {{ item.Warranty }} - {{ item.AssignedTo }} - {{ item.BillNumber }}</li>
-            {% endfor %}
-        </ul>
-        <hr>
-        <h2>All Items</h2>
-        <ul>
-            {% for item in all_items %}
-                <li>{{ item.ItemName }} - {{ item.Quantity }}</li>
-            {% endfor %}
-        </ul>
-    </div> -->
-
-
-
-
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+
+    function validateAssignForm() {
+        var selectedUser = document.getElementById('assignedTo').value;
+        if (selectedUser === '') {
+            alert('Please select a user.');
+            return false; // Prevent form submission if no user is selected
+        }
+        return true; // Allow form submission if a user is selected
+    }
+
+
+    </script>
+
+
+
+
+
 
 </body>
 </html>

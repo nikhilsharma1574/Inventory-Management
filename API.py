@@ -82,18 +82,46 @@ def logout():
     flash("Logged Out Succesfully","info") #"info category hai" , warning and error also
     return redirect(url_for("login"))
 
-@app.route('/admin')
+@app.route('/profile')
+def profile():
+    user_id = session.get('user_id')
+    user = User.query.get(user_id)
+    return render_template('profile.html', user=user)
+
+@app.route('/admin', methods=['GET','POST'])
 def admin():
     user_id = session.get('user_id')
     if user_id:
-        user = User.query.get(user_id)
-        if user.isAdmin:
-            all_items = Items.query.all() 
-            return render_template('admin.html', user=user,all_items=all_items)
+        this_user = User.query.get(user_id)
+        if this_user.isAdmin:
+            filter_type = request.args.get('filter', 'all')
+
+            items = []
+            users = User.query.all()
+            categories = {}
+
+            if filter_type == 'all_items':
+                items = Items.query.all()
+            elif filter_type == 'assigned':
+                items = Items.query.filter(Items.AssignedTo.isnot(None)).all()
+            elif filter_type == 'unassigned':
+                items = Items.query.filter(Items.AssignedTo.is_(None)).all()
+            elif filter_type == 'category':
+                items = Items.query.all()
+                for item in items:
+                    if item.Category not in categories:
+                        categories[item.Category] = []
+                    categories[item.Category].append(item)
+            else:
+                items = Items.query.all()
+
+            return render_template('admin.html', user=this_user, items=items, users=users, categories=categories, filter_type=filter_type)
         else:
             return "Not Admin"
     else:
         return redirect(url_for('/'))
+
+
     
 @app.route('/employee')
 def employee():
@@ -125,10 +153,8 @@ def handle_users():
 
 @app.route('/items', methods=['GET', 'POST'])
 def handle_items():
-    if request.method == 'GET':
-        items = Items.query.all()
-    elif request.method == 'POST':
-        print("Items Post Succesfull")
+    if request.method == 'POST':
+        print("Items Post Successful")
         serialNumber = request.form['serialNumber']
         itemName = request.form['itemName']
         quantity = request.form['quantity']
@@ -143,9 +169,48 @@ def handle_items():
         db.session.add(new_item)
         db.session.commit()
 
-        items = Items.query.all()
     users = User.query.all()
-    return render_template('items.html', items=items,users = users)
+    return render_template('admin.html', users=users)
+
+@app.route('/add-item', methods=['GET', 'POST'])
+def add_item():
+    if request.method == 'POST':
+        print("Items Post Successful")
+        serialNumber = request.form['serialNumber']
+        itemName = request.form['itemName']
+        quantity = request.form['quantity']
+        category = request.form['category']
+        billNumber = request.form['billNumber']
+        dateOfPurchase = request.form['dateOfPurchase']
+        warranty = request.form['warranty']
+        assignedTo = request.form['assignedTo']
+
+        new_item = Items(SerialNumber=serialNumber, ItemName=itemName, Quantity=quantity, Category=category,
+                         BillNumber=billNumber, DateOfPurchase=dateOfPurchase, Warranty=warranty, AssignedTo=assignedTo)
+        db.session.add(new_item)
+        db.session.commit()
+        return redirect(url_for('admin'))
+
+    return render_template('add_item.html')
+
+
+@app.route('/add-user', methods=['GET', 'POST'])
+def add_user():
+    if request.method == 'POST':
+        print("Users Post Succesfull")
+        isAdmin_str = request.form.get('isAdmin', 'off')  # Default value if checkbox is unchecked
+        isAdmin = 0 if isAdmin_str == 'off' else 1
+        fullName = request.form['fullName']
+        email = request.form['email']
+        password = request.form['password']
+
+        new_user = User(isAdmin=isAdmin, FullName=fullName, Email=email, Password=password)
+        db.session.add(new_user)
+        db.session.commit()
+        return redirect(url_for('admin'))
+    return render_template('add_user.html')
+
+
 
 @app.route('/delete-item', methods=['POST'])
 def delete_item():
@@ -154,7 +219,7 @@ def delete_item():
     if item_to_delete:
         db.session.delete(item_to_delete)
         db.session.commit()
-        return redirect('/items')  # Redirect to the main page after deleting
+        return redirect('/admin')  # Redirect to the main page after deleting
     else:
         return 'Item not found', 404
     
@@ -168,23 +233,27 @@ def delete_user():
         db.session.delete(user_to_delete)
         db.session.commit()
 
-        return redirect('/users')  # Redirect to the main page after deleting
+        return redirect(url_for('admin'))  # Redirect to the main page after deleting
     else:
         return '<alert>User not found</alert>', 404
 
 
 @app.route('/assign-item', methods=['POST'])
 def assign_item():
-    serial_number = request.form['serialNumber']
-    assigned_to = request.form['assignedTo']
-
-    item = Items.query.filter_by(SerialNumber=serial_number).first()
-    if item:
-        item.AssignedTo = assigned_to
-        db.session.commit()
-        return redirect(url_for('handle_items'))
-    else:
-        return 'Item not found', 404
+    if request.method == 'POST':
+        serialNumber = request.form['serialNumber']
+        assignedTo = request.form['assignedTo']
+        
+        # Update the assignedTo field in the database for the item with the given serial number
+        item = Items.query.filter_by(SerialNumber=serialNumber).first()
+        if item:
+            item.AssignedTo = assignedTo
+            db.session.commit()
+            # Redirect back to the admin page after assigning the item
+            return redirect(url_for('admin'))
+        else:
+            # Handle case where item with the given serial number does not exist
+            return 'Item not found', 404
 
 @app.route('/unassign-item', methods=['POST'])
 def unassign_item():
@@ -194,7 +263,7 @@ def unassign_item():
     if items:
         items.AssignedTo = None
         db.session.commit()
-        return redirect(url_for("handle_items"))
+        return redirect(url_for("admin"))
     else:
         return 'Item not found', 404
 
