@@ -36,9 +36,9 @@
                         <form action="/assign-item" method="POST"> <!-- Form for assign button -->
                             <input type="hidden" name="serialNumber" value="{{ item.SerialNumber }}"> <!-- Hidden input for serial number -->
                             <select name="assignedTo">
-                                {% for user in users %}
-                                    <option value="{{ user.UID }}">{{ user.FullName }}</option> <!-- Dropdown options for users -->
-                                {% endfor %}
+                                <!-- {% for user in users %}
+                                    <option value="{{ user.UID }}">{{ user.FullName }}</option> 
+                                {% endfor %} -->
                             </select>
                             <button type="submit">Assign</button> <!-- Assign button -->
                         </form>

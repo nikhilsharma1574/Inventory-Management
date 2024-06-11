@@ -1,0 +1,205 @@
+2024-06-10 16:15:27,147 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-06-10 16:15:27,148 - INFO - [33mPress CTRL+C to quit[0m
+2024-06-10 16:15:27,150 - INFO -  * Restarting with stat
+2024-06-10 16:15:28,005 - WARNING -  * Debugger is active!
+2024-06-10 16:15:28,011 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:15:46,879 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-06-10 16:15:46,879 - INFO - [33mPress CTRL+C to quit[0m
+2024-06-10 16:15:46,882 - INFO -  * Restarting with stat
+2024-06-10 16:15:47,771 - WARNING -  * Debugger is active!
+2024-06-10 16:15:47,776 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:16:14,604 - INFO - 127.0.0.1 - - [10/Jun/2024 16:16:14] "[33mGET /api/users HTTP/1.1[0m" 404 -
+2024-06-10 16:16:14,907 - INFO - 127.0.0.1 - - [10/Jun/2024 16:16:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-06-10 16:16:18,970 - INFO - 127.0.0.1 - - [10/Jun/2024 16:16:18] "GET / HTTP/1.1" 200 -
+2024-06-10 16:16:19,000 - INFO - 127.0.0.1 - - [10/Jun/2024 16:16:19] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+2024-06-10 16:16:19,199 - INFO - 127.0.0.1 - - [10/Jun/2024 16:16:19] "GET /static/css/flash.css HTTP/1.1" 200 -
+2024-06-10 16:16:28,648 - INFO - Login attempt with email: admin@nucleusteq.com
+2024-06-10 16:16:28,779 - INFO - 127.0.0.1 - - [10/Jun/2024 16:16:28] "[32mPOST / HTTP/1.1[0m" 302 -
+2024-06-10 16:16:28,892 - INFO - 127.0.0.1 - - [10/Jun/2024 16:16:28] "GET /admin HTTP/1.1" 200 -
+2024-06-10 16:16:28,928 - INFO - 127.0.0.1 - - [10/Jun/2024 16:16:28] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+2024-06-10 16:16:28,934 - INFO - 127.0.0.1 - - [10/Jun/2024 16:16:28] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:17:13,442 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:17:13,541 - INFO -  * Restarting with stat
+2024-06-10 16:17:21,439 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-06-10 16:17:21,439 - INFO - [33mPress CTRL+C to quit[0m
+2024-06-10 16:17:21,441 - INFO -  * Restarting with stat
+2024-06-10 16:17:22,407 - WARNING -  * Debugger is active!
+2024-06-10 16:17:22,412 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:17:26,205 - INFO - 127.0.0.1 - - [10/Jun/2024 16:17:26] "GET /admin HTTP/1.1" 200 -
+2024-06-10 16:17:26,227 - INFO - 127.0.0.1 - - [10/Jun/2024 16:17:26] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+2024-06-10 16:17:26,451 - INFO - 127.0.0.1 - - [10/Jun/2024 16:17:26] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:17:37,263 - INFO - 127.0.0.1 - - [10/Jun/2024 16:17:37] "GET /admin?filter=assigned HTTP/1.1" 200 -
+2024-06-10 16:17:37,306 - INFO - 127.0.0.1 - - [10/Jun/2024 16:17:37] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+2024-06-10 16:17:37,310 - INFO - 127.0.0.1 - - [10/Jun/2024 16:17:37] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:17:43,297 - INFO - 127.0.0.1 - - [10/Jun/2024 16:17:43] "GET /admin?filter=unassigned HTTP/1.1" 200 -
+2024-06-10 16:17:43,331 - INFO - 127.0.0.1 - - [10/Jun/2024 16:17:43] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+2024-06-10 16:17:43,344 - INFO - 127.0.0.1 - - [10/Jun/2024 16:17:43] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:17:49,692 - INFO - 127.0.0.1 - - [10/Jun/2024 16:17:49] "GET /admin?filter=category HTTP/1.1" 200 -
+2024-06-10 16:17:49,725 - INFO - 127.0.0.1 - - [10/Jun/2024 16:17:49] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+2024-06-10 16:17:49,739 - INFO - 127.0.0.1 - - [10/Jun/2024 16:17:49] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:18:18,166 - INFO - 127.0.0.1 - - [10/Jun/2024 16:18:18] "GET /admin?filter=assigned HTTP/1.1" 200 -
+2024-06-10 16:18:18,205 - INFO - 127.0.0.1 - - [10/Jun/2024 16:18:18] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+2024-06-10 16:18:18,215 - INFO - 127.0.0.1 - - [10/Jun/2024 16:18:18] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:18:19,142 - INFO - 127.0.0.1 - - [10/Jun/2024 16:18:19] "GET /admin?filter=unassigned HTTP/1.1" 200 -
+2024-06-10 16:18:19,171 - INFO - 127.0.0.1 - - [10/Jun/2024 16:18:19] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+2024-06-10 16:18:19,174 - INFO - 127.0.0.1 - - [10/Jun/2024 16:18:19] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:18:20,201 - INFO - 127.0.0.1 - - [10/Jun/2024 16:18:20] "GET /admin?filter=all_employees HTTP/1.1" 200 -
+2024-06-10 16:18:20,237 - INFO - 127.0.0.1 - - [10/Jun/2024 16:18:20] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+2024-06-10 16:18:20,240 - INFO - 127.0.0.1 - - [10/Jun/2024 16:18:20] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:18:54,930 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:18:55,033 - INFO -  * Restarting with stat
+2024-06-10 16:18:58,098 - INFO -  * Restarting with stat
+2024-06-10 16:18:59,095 - WARNING -  * Debugger is active!
+2024-06-10 16:18:59,102 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:19:50,784 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\test2.py', reloading
+2024-06-10 16:19:50,912 - INFO -  * Restarting with stat
+2024-06-10 16:19:52,131 - WARNING -  * Debugger is active!
+2024-06-10 16:19:52,139 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:20:23,128 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:20:23,231 - INFO -  * Restarting with stat
+2024-06-10 16:20:24,105 - WARNING -  * Debugger is active!
+2024-06-10 16:20:24,113 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:20:50,876 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:20:50,963 - INFO -  * Restarting with stat
+2024-06-10 16:20:51,994 - WARNING -  * Debugger is active!
+2024-06-10 16:20:52,004 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:20:53,133 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:20:53,228 - INFO -  * Restarting with stat
+2024-06-10 16:26:20,848 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-06-10 16:26:20,848 - INFO - [33mPress CTRL+C to quit[0m
+2024-06-10 16:26:20,850 - INFO -  * Restarting with stat
+2024-06-10 16:26:21,843 - WARNING -  * Debugger is active!
+2024-06-10 16:26:21,850 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:26:28,743 - INFO - 127.0.0.1 - - [10/Jun/2024 16:26:28] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-06-10 16:26:28,760 - INFO - 127.0.0.1 - - [10/Jun/2024 16:26:28] "GET / HTTP/1.1" 200 -
+2024-06-10 16:26:28,800 - INFO - 127.0.0.1 - - [10/Jun/2024 16:26:28] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+2024-06-10 16:26:29,016 - INFO - 127.0.0.1 - - [10/Jun/2024 16:26:29] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:26:37,017 - INFO - 127.0.0.1 - - [10/Jun/2024 16:26:37] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+2024-06-10 16:26:37,067 - INFO - 127.0.0.1 - - [10/Jun/2024 16:26:37] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2024-06-10 16:26:37,082 - INFO - 127.0.0.1 - - [10/Jun/2024 16:26:37] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2024-06-10 16:26:37,142 - INFO - 127.0.0.1 - - [10/Jun/2024 16:26:37] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2024-06-10 16:26:37,176 - INFO - 127.0.0.1 - - [10/Jun/2024 16:26:37] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2024-06-10 16:26:53,773 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:26:53,862 - INFO -  * Restarting with stat
+2024-06-10 16:27:09,312 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-06-10 16:27:09,312 - INFO - [33mPress CTRL+C to quit[0m
+2024-06-10 16:27:09,315 - INFO -  * Restarting with stat
+2024-06-10 16:27:10,343 - WARNING -  * Debugger is active!
+2024-06-10 16:27:10,353 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:27:17,660 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:27:17,786 - INFO -  * Restarting with stat
+2024-06-10 16:27:28,521 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-06-10 16:27:28,521 - INFO - [33mPress CTRL+C to quit[0m
+2024-06-10 16:27:28,524 - INFO -  * Restarting with stat
+2024-06-10 16:27:29,458 - WARNING -  * Debugger is active!
+2024-06-10 16:27:29,464 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:27:30,842 - INFO - 127.0.0.1 - - [10/Jun/2024 16:27:30] "GET / HTTP/1.1" 200 -
+2024-06-10 16:27:35,515 - INFO - 127.0.0.1 - - [10/Jun/2024 16:27:35] "[32mPOST / HTTP/1.1[0m" 302 -
+2024-06-10 16:27:35,650 - INFO - 127.0.0.1 - - [10/Jun/2024 16:27:35] "GET /admin HTTP/1.1" 200 -
+2024-06-10 16:27:35,950 - INFO - 127.0.0.1 - - [10/Jun/2024 16:27:35] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:27:44,347 - INFO - 127.0.0.1 - - [10/Jun/2024 16:27:44] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-06-10 16:27:44,353 - INFO - 127.0.0.1 - - [10/Jun/2024 16:27:44] "GET / HTTP/1.1" 200 -
+2024-06-10 16:27:44,383 - INFO - 127.0.0.1 - - [10/Jun/2024 16:27:44] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+2024-06-10 16:27:44,387 - INFO - 127.0.0.1 - - [10/Jun/2024 16:27:44] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:28:19,956 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:28:20,051 - INFO -  * Restarting with stat
+2024-06-10 16:28:20,915 - WARNING -  * Debugger is active!
+2024-06-10 16:28:20,920 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:28:24,052 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:28:24,178 - INFO -  * Restarting with stat
+2024-06-10 16:28:25,108 - WARNING -  * Debugger is active!
+2024-06-10 16:28:25,114 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:28:31,400 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:28:31,509 - INFO -  * Restarting with stat
+2024-06-10 16:28:32,291 - WARNING -  * Debugger is active!
+2024-06-10 16:28:32,296 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:28:34,395 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:28:34,518 - INFO -  * Restarting with stat
+2024-06-10 16:28:35,503 - WARNING -  * Debugger is active!
+2024-06-10 16:28:35,508 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:28:36,566 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:28:36,673 - INFO -  * Restarting with stat
+2024-06-10 16:28:37,559 - WARNING -  * Debugger is active!
+2024-06-10 16:28:37,564 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:28:40,685 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:28:40,771 - INFO -  * Restarting with stat
+2024-06-10 16:28:41,582 - WARNING -  * Debugger is active!
+2024-06-10 16:28:41,587 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:28:43,689 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:28:43,801 - INFO -  * Restarting with stat
+2024-06-10 16:28:44,703 - WARNING -  * Debugger is active!
+2024-06-10 16:28:44,709 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:28:47,877 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:28:47,980 - INFO -  * Restarting with stat
+2024-06-10 16:28:49,058 - WARNING -  * Debugger is active!
+2024-06-10 16:28:49,065 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:28:52,201 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:28:52,309 - INFO -  * Restarting with stat
+2024-06-10 16:28:53,384 - WARNING -  * Debugger is active!
+2024-06-10 16:28:53,390 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:28:55,523 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:28:55,688 - INFO -  * Restarting with stat
+2024-06-10 16:28:56,624 - WARNING -  * Debugger is active!
+2024-06-10 16:28:56,633 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:29:23,662 - INFO - 127.0.0.1 - - [10/Jun/2024 16:29:23] "[32mPOST / HTTP/1.1[0m" 302 -
+2024-06-10 16:29:23,815 - INFO - 127.0.0.1 - - [10/Jun/2024 16:29:23] "GET /admin HTTP/1.1" 200 -
+2024-06-10 16:29:24,093 - INFO - 127.0.0.1 - - [10/Jun/2024 16:29:24] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:29:26,142 - INFO - 127.0.0.1 - - [10/Jun/2024 16:29:26] "GET /admin?filter=all_employees HTTP/1.1" 200 -
+2024-06-10 16:29:26,173 - INFO - 127.0.0.1 - - [10/Jun/2024 16:29:26] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:29:42,980 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:29:43,074 - INFO -  * Restarting with stat
+2024-06-10 16:29:43,856 - WARNING -  * Debugger is active!
+2024-06-10 16:29:43,861 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:29:55,193 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:29:55,305 - INFO -  * Restarting with stat
+2024-06-10 16:29:56,244 - WARNING -  * Debugger is active!
+2024-06-10 16:29:56,250 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:30:03,489 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:30:03,608 - INFO -  * Restarting with stat
+2024-06-10 16:32:46,531 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-06-10 16:32:46,531 - INFO - [33mPress CTRL+C to quit[0m
+2024-06-10 16:32:46,534 - INFO -  * Restarting with stat
+2024-06-10 16:32:47,310 - WARNING -  * Debugger is active!
+2024-06-10 16:32:47,315 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:32:54,592 - INFO - 127.0.0.1 - - [10/Jun/2024 16:32:54] "GET /admin?filter=all_items HTTP/1.1" 200 -
+2024-06-10 16:32:54,901 - INFO - 127.0.0.1 - - [10/Jun/2024 16:32:54] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:32:57,358 - INFO - 127.0.0.1 - - [10/Jun/2024 16:32:57] "GET /admin?filter=all HTTP/1.1" 200 -
+2024-06-10 16:32:57,395 - INFO - 127.0.0.1 - - [10/Jun/2024 16:32:57] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:32:59,511 - INFO - 127.0.0.1 - - [10/Jun/2024 16:32:59] "GET /admin?filter=assigned HTTP/1.1" 200 -
+2024-06-10 16:32:59,543 - INFO - 127.0.0.1 - - [10/Jun/2024 16:32:59] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:33:00,772 - INFO - 127.0.0.1 - - [10/Jun/2024 16:33:00] "GET /admin?filter=unassigned HTTP/1.1" 200 -
+2024-06-10 16:33:00,800 - INFO - 127.0.0.1 - - [10/Jun/2024 16:33:00] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:33:07,660 - INFO - 127.0.0.1 - - [10/Jun/2024 16:33:07] "[32mPOST /assign-item HTTP/1.1[0m" 302 -
+2024-06-10 16:33:07,673 - INFO - 127.0.0.1 - - [10/Jun/2024 16:33:07] "GET /admin?filter=unassigned HTTP/1.1" 200 -
+2024-06-10 16:33:07,700 - INFO - 127.0.0.1 - - [10/Jun/2024 16:33:07] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:33:12,649 - INFO - 127.0.0.1 - - [10/Jun/2024 16:33:12] "GET /admin?filter=assigned HTTP/1.1" 200 -
+2024-06-10 16:33:12,673 - INFO - 127.0.0.1 - - [10/Jun/2024 16:33:12] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:33:18,331 - INFO - 127.0.0.1 - - [10/Jun/2024 16:33:18] "[32mPOST /unassign-item HTTP/1.1[0m" 302 -
+2024-06-10 16:33:18,343 - INFO - 127.0.0.1 - - [10/Jun/2024 16:33:18] "GET /admin?filter=assigned HTTP/1.1" 200 -
+2024-06-10 16:33:18,371 - INFO - 127.0.0.1 - - [10/Jun/2024 16:33:18] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:33:19,761 - INFO - 127.0.0.1 - - [10/Jun/2024 16:33:19] "GET /admin?filter=unassigned HTTP/1.1" 200 -
+2024-06-10 16:33:19,802 - INFO - 127.0.0.1 - - [10/Jun/2024 16:33:19] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:33:26,978 - INFO - 127.0.0.1 - - [10/Jun/2024 16:33:26] "[32mPOST /assign-item HTTP/1.1[0m" 302 -
+2024-06-10 16:33:26,994 - INFO - 127.0.0.1 - - [10/Jun/2024 16:33:26] "GET /admin?filter=unassigned HTTP/1.1" 200 -
+2024-06-10 16:33:27,021 - INFO - 127.0.0.1 - - [10/Jun/2024 16:33:27] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:33:45,104 - INFO -  * Detected change in 'd:\\Projects\\Inventory-Management\\API.py', reloading
+2024-06-10 16:33:45,197 - INFO -  * Restarting with stat
+2024-06-10 16:34:05,483 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-06-10 16:34:05,483 - INFO - [33mPress CTRL+C to quit[0m
+2024-06-10 16:34:05,487 - INFO -  * Restarting with stat
+2024-06-10 16:34:06,877 - WARNING -  * Debugger is active!
+2024-06-10 16:34:06,883 - INFO -  * Debugger PIN: 587-101-755
+2024-06-10 16:34:07,022 - INFO - 127.0.0.1 - - [10/Jun/2024 16:34:07] "GET /admin?filter=unassigned HTTP/1.1" 200 -
+2024-06-10 16:34:07,488 - INFO - 127.0.0.1 - - [10/Jun/2024 16:34:07] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:34:38,491 - INFO - 127.0.0.1 - - [10/Jun/2024 16:34:38] "GET /admin?filter=all HTTP/1.1" 200 -
+2024-06-10 16:34:38,523 - INFO - 127.0.0.1 - - [10/Jun/2024 16:34:38] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -
+2024-06-10 16:34:39,674 - INFO - 127.0.0.1 - - [10/Jun/2024 16:34:39] "GET /admin?filter=all_employees HTTP/1.1" 200 -
+2024-06-10 16:34:39,705 - INFO - 127.0.0.1 - - [10/Jun/2024 16:34:39] "[36mGET /static/css/flash.css HTTP/1.1[0m" 304 -

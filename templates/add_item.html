@@ -1,48 +1,116 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+
+<head>
     <title>NUCLEUSTEQ</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
     <script src="https://cdn.tailwindcss.com"></script>
-  
-</head>
-  <body class="login">
-    <h<body>
-        <div class="absolute bg-[#00C7C4] left-[195px] rounded-full h-[400px] w-[400px]"></div>
-        <div class="absolute bg-blue-600 bottom-4 right-36 rounded-full h-[450px] w-[450px]"></div>
-        <div class="backdrop-blur-[80px] bg-cover w-screen overflow-hidden h-screen flex items-center justify-center">
-                
-        <div class="w-full h-full items-center justify-center flex p-6">
-        <div class="border-dotted mx-10 p-5 lg:h-[940px] lg:w-[450px] rounded-xl  aspect-video w-96 bg-white backdrop-blur-[900px] shadow-lg ring-1 ring-black/5">
-                <h1 class="text-center text-4xl uppercase font-bold text-black mb-12">Add Item</h1>
-    <form method="POST">
-        <label for="serialNumber">Serial Number:</label><br>
-        <input type="text" id="serialNumber" name="serialNumber" class="form-control"><br>
-        <label for="itemName">Item Name:</label><br>
-        <input type="text" id="itemName" name="itemName" class="form-control"><br>
-        <label for="quantity">Quantity:</label><br>
-        <input type="number" id="quantity" name="quantity" class="form-control"><br>
-        <label for="category">Category:</label><br>
-        <input type="text" id="category" name="category" class="form-control"><br>
-        <label for="billNumber">Bill Number:</label><br>
-        <input type="text" id="billNumber" name="billNumber" class="form-control"><br>
-        <label for="dateOfPurchase">Date of Purchase:</label><br>
-        <input type="date" id="dateOfPurchase" name="dateOfPurchase" class="form-control"><br>
-        <label for="warranty">Warranty:</label><br>
-        <input type="text" id="warranty" name="warranty" class="form-control"><br>
-        <label for="assignedTo">Assigned To:</label><br>
-        <input type="text" id="assignedTo" name="assignedTo" class="form-control"><br><br>
-        <button type="submit" class=" bg-[#00C7C4] px-8 py-2 rounded-md hover:scale-110 transition-all delay-150">Add Item</button>
-    </form>
-                </div>
-            </div>
-        </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/flash.css')}}">
 
+    <style>
+        .scroll-container {
+            height: 100vh;
+            /* Set the height of the container to 100% of the viewport height */
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+        }
+    </style>
+</head>
+
+<body class="login bg-gray-300 overflow-hidden">
+    <div class="absolute bg-[#00C7C4] left-[195px] rounded-full h-[400px] w-[400px]"></div>
+    <div class="absolute bg-blue-600 bottom-4 right-36 rounded-full h-[450px] w-[450px]"></div>
+    <div class="backdrop-blur-[80px] bg-cover w-screen overflow-hidden h-screen flex items-center justify-center">
+
+        <div class="w-full h-full items-center justify-center flex p-6">
+            <div
+                class="border-dotted mx-10 p-5 lg:h-[900px] lg:w-[450px] rounded-xl  aspect-video w-96 bg-slate-50 backdrop-blur-[900px] shadow-lg ring-1 ring-black/5">
+                <h1 class="text-center text-4xl uppercase font-bold text-black mb-12">Add Item</h1>
+                <form method="POST" id="addItemForm" onsubmit="return validateForm()">
+
+                    <label for="itemName">Item Name:</label><br>
+                    <input type="text" id="itemName" name="itemName" class="form-control"
+                        style="text-transform: capitalize;" required>
+                    <small class="form-text text-muted">Please enter the item name.</small>
+
+                    <label for="quantity">Quantity:</label><br>
+                    <input type="number" id="quantity" name="quantity" class="form-control" required min="0">
+                    <small class="form-text text-muted">Please enter the quantity.</small>
+
+                    <label for="category">Category:</label><br>
+                    <input type="text" id="category" name="category" class="form-control" pattern="[A-Za-z]+"
+                        title="Please enter alphabets only" required>
+                    <small class="form-text text-muted">Please enter alphabets only.</small>
+
+                    <label for="billNumber">Bill Number:</label><br>
+                    <input type="text" id="billNumber" name="billNumber" class="form-control" pattern="\d+"
+                        title="Please enter numbers only" required>
+                    <small class="form-text text-muted">Please enter numbers only.</small>
+
+
+                    <label for="dateOfPurchase">Date of Purchase:</label><br>
+                    <input type="date" id="dateOfPurchase" name="dateOfPurchase" class="form-control" required>
+                    <small class="form-text text-muted">Please enter a valid date in the format mm/dd/yyyy.</small>
+
+                    <label for="warranty">Warranty:</label><br>
+                    <input type="text" id="warranty" name="warranty" class="form-control" placeholder="Years" required>
+                    <small class="form-text text-muted">Please enter the warranty period in years.</small>
+
+                    <label for="assignedTo">Assigned To:</label><br>
+                    <select id="assignedTo" name="assignedTo" class="form-control">
+                        <option value="">None</option>
+                        {% for u in users %}
+                        <option value="{{ u.UID }}">{{ u.FullName }}</option>
+                        {% endfor %}
+                    </select>
+                    <small class="form-text text-muted">Please select a user.</small>
+
+
+
+                    <button type="submit"
+                        class="bg-black text-white px-8 py-2 mt-10 rounded-md hover:scale-110 transition-all delay-150">Add
+                        Item</button>
+                </form>
+            </div>
+            <!-- HTML code -->
+<div id="flash-messages" class="flash-messages"></div>
+
+<!-- Flask template -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div id="flash-messages" class="flash-messages">
+            {% for category, message in messages %}
+                <div class="flash-message alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+
+        function validateForm() {
+            var itemName = document.getElementById('itemName').value;
+
+            var regex = /^[A-Za-z\s]+$/;
+
+            if (!regex.test(itemName)) {
+                alert('Please enter only text (no numbers) for the item name.');
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
+
 </html>
-    
